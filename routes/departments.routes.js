@@ -28,7 +28,7 @@ router.get('/departments/random', (req, res) => {
 
 router.get('/departments/:id', (req, res) => {
   req.db.collection('departments')
-  .findOne({ _id: ObjectId(re.params.id) })
+  .findOne({ _id: ObjectId(req.params.id) })
   .then((data) => {
     if(!data) res.status(404).json({ message: 'Not Found' });
     else res.json(data);
